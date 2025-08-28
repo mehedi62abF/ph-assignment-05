@@ -25,7 +25,7 @@ for (let heart of heartIcons) {
   });
 }
 
-//    coin code
+//    coin code & Call History Section Code
 
 let coin = 100;
 const coinElement = document.getElementById("coin");
@@ -54,7 +54,16 @@ for (const btn of callButtons) {
     newEntry.classList.add("mb-2", "text-sm");
 
     const time = new Date().toLocaleTimeString();
-    newEntry.innerText = `${serviceName} (${serviceNumber}) - ${time}`;
+    newEntry.innerHTML = `
+  <div class="flex justify-between items-center bg-gray-100 p-3 rounded-lg shadow-sm">
+    <div>
+      <h3 class="font-semibold text-sm">${serviceName}</h3>
+      <p class="text-sm text-gray-700">${serviceNumber}</p>
+    </div>
+    <div class="text-xs text-gray-500">${time}</div>
+  </div>
+`;
+
     historyContainer.appendChild(newEntry);
   });
 }
