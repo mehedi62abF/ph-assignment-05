@@ -25,7 +25,7 @@ for (let heart of heartIcons) {
   });
 }
 
-//    Count code
+//    coin code
 
 let coin = 100;
 const coinElement = document.getElementById("coin");
@@ -60,3 +60,30 @@ document.getElementById("btn-clear").addEventListener("click", function () {
   const historyElement = document.getElementById("call-history");
   historyElement.innerHTML = "";
 });
+
+//  Copy Count
+
+let copyCount = 2;
+const copyCounter = document.getElementById("copy-count");
+
+const copyButtons = document.querySelectorAll(".service-card .btn");
+
+for (let btn of copyButtons) {
+  if (btn.querySelector(".fa-copy")) {
+    btn.addEventListener("click", function () {
+      const card = this.closest(".service-card");
+      const number = card.querySelector(".text-3xl").innerText;
+
+      navigator.clipboard
+        .writeText(number)
+        .then(() => {
+          alert("Number copied!");
+          copyCount++;
+          copyCounter.innerText = copyCount;
+        })
+        .catch(() => {
+          alert("Failed to copy.");
+        });
+    });
+  }
+}
