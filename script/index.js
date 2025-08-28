@@ -52,7 +52,9 @@ for (const btn of callButtons) {
     const historyContainer = document.querySelector("#call-history");
     const newEntry = document.createElement("div");
     newEntry.classList.add("mb-2", "text-sm");
-    newEntry.innerText = `${serviceName} (${serviceNumber})`;
+
+    const time = new Date().toLocaleTimeString();
+    newEntry.innerText = `${serviceName} (${serviceNumber}) - ${time}`;
     historyContainer.appendChild(newEntry);
   });
 }
