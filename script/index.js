@@ -74,7 +74,7 @@ document.getElementById("btn-clear").addEventListener("click", function () {
 
 //  Copy Count
 
-let copyCount = 2;
+let copyCount = 0;
 const copyCounter = document.getElementById("copy-count");
 
 const copyButtons = document.querySelectorAll(".service-card .btn");
